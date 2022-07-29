@@ -1,0 +1,27 @@
+grammar evil;
+
+prog: SEJA;
+SEJA: 'seja' ;
+ATR: '=' ;
+NUM: '-'? ('0' | [1-9]('_'?[0-9])*)('.'[0-9]('_'?[0-9])*)? ;
+OPARIT: [+\-*/%] | '//' ;
+OPREL: ('>'|'<')'='? | ('!' | '=')'=' ;
+ID: [a-zA-Z_][a-zA-Z_0-9]* ;
+STRING: '"' ([^"] | '\\"' | .)*? '"' ;
+COM: '#' .*? [\n] ;
+SE: 'se' ;
+SENAO: 'senao' | 'sn' ;
+ENQUANTO: 'enquanto' | 'enqto' ;
+PCADA: 'pcada' ;
+EM: 'em' ;
+FN: 'fn' ;
+VIRG: ',' ;
+DP: ':' ;
+FL: ';' ;
+AP: '(' ;
+FP: ')' ;
+ACH: '{' ;
+FCH: '}' ;
+ACO: '[' ;
+FCO: ']' ;
+WS: [ \r\t\n]+ -> skip;

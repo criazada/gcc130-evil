@@ -10,7 +10,7 @@
           inherit system;
         };
 
-        buildInputs = with pkgs; [ antlr wget ];
+        buildInputs = with pkgs; [ antlr jdk ];
         nativeBuildInputs = with pkgs; [ ];
       in
       rec {
