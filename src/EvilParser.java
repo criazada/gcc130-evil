@@ -1,4 +1,4 @@
-// Generated from evil.g4 by ANTLR 4.8
+// Generated from Evil.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,16 +9,17 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class evilParser extends Parser {
+public class EvilParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		SEJA=1, ATR=2, NUM=3, OPARIT=4, OPREL=5, ID=6, STRING=7, COM=8, SE=9, 
-		SENAO=10, ENQUANTO=11, PCADA=12, EM=13, FN=14, VIRG=15, DP=16, FL=17, 
-		AP=18, FP=19, ACH=20, FCH=21, ACO=22, FCO=23, WS=24;
+		SEJA=1, SE=2, SENAO=3, ENQUANTO=4, PCADA=5, ATR=6, NUM=7, OPARIT=8, OPREL=9, 
+		OPBIN=10, OPBOOL=11, ATRARIT=12, OPACC=13, ID=14, STRING=15, COM=16, EM=17, 
+		FN=18, VIRG=19, DP=20, FL=21, AP=22, FP=23, ACH=24, FCH=25, ACO=26, FCO=27, 
+		WS=28;
 	public static final int
 		RULE_prog = 0;
 	private static String[] makeRuleNames() {
@@ -30,17 +31,18 @@ public class evilParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'seja'", "'='", null, null, null, null, null, null, "'se'", null, 
-			null, "'pcada'", "'em'", "'fn'", "','", "':'", "';'", "'('", "')'", "'{'", 
-			"'}'", "'['", "']'"
+			null, "'seja'", "'se'", null, null, "'pcada'", "'='", null, null, null, 
+			null, null, null, "'.'", null, null, null, "'em'", "'fn'", "','", "':'", 
+			"';'", "'('", "')'", "'{'", "'}'", "'['", "']'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "SEJA", "ATR", "NUM", "OPARIT", "OPREL", "ID", "STRING", "COM", 
-			"SE", "SENAO", "ENQUANTO", "PCADA", "EM", "FN", "VIRG", "DP", "FL", "AP", 
-			"FP", "ACH", "FCH", "ACO", "FCO", "WS"
+			null, "SEJA", "SE", "SENAO", "ENQUANTO", "PCADA", "ATR", "NUM", "OPARIT", 
+			"OPREL", "OPBIN", "OPBOOL", "ATRARIT", "OPACC", "ID", "STRING", "COM", 
+			"EM", "FN", "VIRG", "DP", "FL", "AP", "FP", "ACH", "FCH", "ACO", "FCO", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -78,7 +80,7 @@ public class evilParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "evil.g4"; }
+	public String getGrammarFileName() { return "Evil.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -89,24 +91,24 @@ public class evilParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public evilParser(TokenStream input) {
+	public EvilParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	public static class ProgContext extends ParserRuleContext {
-		public TerminalNode SEJA() { return getToken(evilParser.SEJA, 0); }
+		public TerminalNode SEJA() { return getToken(EvilParser.SEJA, 0); }
 		public ProgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prog; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof evilListener ) ((evilListener)listener).enterProg(this);
+			if ( listener instanceof EvilListener ) ((EvilListener)listener).enterProg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof evilListener ) ((evilListener)listener).exitProg(this);
+			if ( listener instanceof EvilListener ) ((EvilListener)listener).exitProg(this);
 		}
 	}
 
@@ -132,7 +134,7 @@ public class evilParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32\7\4\2\t\2\3\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\36\7\4\2\t\2\3\2"+
 		"\3\2\3\2\2\2\3\2\2\2\2\5\2\4\3\2\2\2\4\5\7\3\2\2\5\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

@@ -1,6 +1,10 @@
 token literal names:
 null
 'seja'
+'se'
+null
+null
+'pcada'
 '='
 null
 null
@@ -8,10 +12,10 @@ null
 null
 null
 null
-'se'
+'.'
 null
 null
-'pcada'
+null
 'em'
 'fn'
 ','
@@ -28,17 +32,21 @@ null
 token symbolic names:
 null
 SEJA
-ATR
-NUM
-OPARIT
-OPREL
-ID
-STRING
-COM
 SE
 SENAO
 ENQUANTO
 PCADA
+ATR
+NUM
+OPARIT
+OPREL
+OPBIN
+OPBOOL
+ATRARIT
+OPACC
+ID
+STRING
+COM
 EM
 FN
 VIRG
@@ -57,4 +65,4 @@ prog
 
 
 atn:
-[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 26, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 3, 2, 2, 5, 3, 3, 2, 2, 2, 2]
+[3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 30, 7, 4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 5, 2, 4, 3, 2, 2, 2, 4, 5, 7, 3, 2, 2, 5, 3, 3, 2, 2, 2, 2]

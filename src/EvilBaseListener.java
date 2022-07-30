@@ -1,27 +1,27 @@
-// Generated from evil.g4 by ANTLR 4.8
+// Generated from Evil.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link evilListener},
+ * This class provides an empty implementation of {@link EvilListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class evilBaseListener implements evilListener {
+public class EvilBaseListener implements EvilListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProg(evilParser.ProgContext ctx) { }
+	@Override public void enterProg(EvilParser.ProgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProg(evilParser.ProgContext ctx) { }
+	@Override public void exitProg(EvilParser.ProgContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

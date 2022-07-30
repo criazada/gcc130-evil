@@ -1,4 +1,4 @@
-grammar evil;
+grammar Evil;
 
 prog: SEJA;
 SEJA: 'seja' ;
