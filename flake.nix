@@ -10,6 +10,9 @@
           inherit system;
         };
 
+        antlr = pkgs.antlr.override {
+          jre = pkgs.jre;
+        };
         buildInputs = with pkgs; [ antlr jdk ];
         nativeBuildInputs = with pkgs; [ ];
       in
