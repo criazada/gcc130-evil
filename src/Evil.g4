@@ -41,7 +41,7 @@ PCADA: 'pcada' ;
 RETORNA: 'retorna' ;
 EM: 'em' ;
 FN: 'fn' ;
-BOOL: 'verdade' | 'mentira' ;
+BOOL: 'verdadeiro' | 'falso' ;
 ATR: '=' ;
 NUM: '-'? ('0' | [1-9]('_'?[0-9])*)('.'[0-9]('_'?[0-9])*)? ;
 OPARIT: [+\-*/%] | '//' | '**' ;
