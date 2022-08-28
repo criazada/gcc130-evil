@@ -5,7 +5,7 @@ funcoes: funcao* ;
 funcao: 'fn' ID '(' argumentos ')' ID bloco;
 argumentos: (ID ':' ID (',' ID ':' ID)*)? ;
 bloco: '{' stmt* '}' ;
-corpo: bloco | stmt* ;
+corpo: bloco | stmt ;
 stmt: condicional | declaracao | chamada ';' | atribuicao | pcada | enquanto | retorno ;
 condicional: SE '(' expr ')' corpo (SENAO corpo)? ;
 declaracao: SEJA ID '=' expr ';' ;
