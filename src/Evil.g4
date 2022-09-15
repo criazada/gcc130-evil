@@ -2,18 +2,19 @@ grammar Evil;
 
 prog: funcoes ;
 funcoes: funcao* ;
-funcao: 'fn' ID '(' argumentos ')' ID bloco;
-argumentos: (ID ':' ID (',' ID ':' ID)*)? ;
+funcao: 'fn' ID '(' argumentos ')' {istype()}? ID bloco;
+argumento: ID ':' {istype()}? ID ;
+argumentos: (argumento (',' argumento)*)? ;
 bloco: '{' stmt* '}' ;
 corpo: bloco | stmt ;
 stmt: condicional | declaracao | chamada ';' | atribuicao | pcada | enquanto | retorno ;
 condicional: SE '(' expr ')' corpo (SENAO corpo)? ;
-declaracao: SEJA ID '=' expr ';' ;
-atribuicao: ID ('=' | ATRARIT) expr ';' ;
+declaracao: SEJA {!isdeclared()}? ID '=' expr ';' ;
+atribuicao: {isdeclared()}? ID ('=' | ATRARIT) expr ';' ;
 pcada: PCADA '(' ID EM expr ')' corpo ;
 enquanto: ENQUANTO '(' expr ')' corpo ;
 retorno: RETORNA expr ';' ;
-chamada: ID '(' params ')' ;
+chamada: {isfunc()}? ID '(' params ')' ;
 params: (expr (',' expr)*)? ;
 
 expr:
@@ -21,7 +22,9 @@ expr:
     | chamada
     | STRING
     | BOOL
-    | ID
+    | {isdeclared()}? ID
+    | '!' expr
+    | '-' expr
     | '(' expr ')'
     | expr '**' expr
     | expr ('*' | '/' | '%' | '//') expr
