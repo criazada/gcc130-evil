@@ -1,16 +1,32 @@
 grammar Evil;
 
+@members {
+  List<List<String>> scopes = new ArrayList<>();
+  public void pushscope() {
+    scopes.add(new ArrayList<String>());
+  }
+
+  public void popscope() {
+    scopes.pop();
+  }
+
+  public void decfunction() {
+    System.out.println(getCurrent
+  }
+}
+
 prog: funcoes ;
 funcoes: funcao* ;
-funcao: 'fn' ID '(' argumentos ')' {istype()}? ID bloco;
-argumento: ID ':' {istype()}? ID ;
+funcao: 'fn' ID {decfunction();} '(' argumentos ')' ID {istype()}? bloco;
+argumento: ID ':' ID {istype()}? ;
 argumentos: (argumento (',' argumento)*)? ;
-bloco: '{' stmt* '}' ;
+bloco: '{' {pushscope();} stmt* {popscope();} '}' ;
+
 corpo: bloco | stmt ;
 stmt: condicional | declaracao | chamada ';' | atribuicao | pcada | enquanto | retorno ;
 condicional: SE '(' expr ')' corpo (SENAO corpo)? ;
-declaracao: SEJA {!isdeclared()}? ID '=' expr ';' ;
-atribuicao: {isdeclared()}? ID ('=' | ATRARIT) expr ';' ;
+declaracao: SEJA ID {!isdeclared()}? '=' expr ';' {declaracao();} ;
+atribuicao: ID {isdeclared()}? ('=' | ATRARIT) expr ';' ;
 pcada: PCADA '(' ID EM expr ')' corpo ;
 enquanto: ENQUANTO '(' expr ')' corpo ;
 retorno: RETORNA expr ';' ;
@@ -22,7 +38,7 @@ expr:
     | chamada
     | STRING
     | BOOL
-    | {isdeclared()}? ID
+    | ID {isdeclared()}?
     | '!' expr
     | '-' expr
     | '(' expr ')'
