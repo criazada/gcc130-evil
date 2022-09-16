@@ -1,0 +1,9 @@
+fn fib(n: int) int {
+    se (n <= 1) retorna n;
+    retorna fib(n - 1) + fib(n - 2);
+}
+
+fn b() nada {
+    n = 2;
+    retorna "aaaa";
+}

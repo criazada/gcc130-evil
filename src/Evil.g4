@@ -1,55 +1,40 @@
 grammar Evil;
 
-@members {
-  List<List<String>> scopes = new ArrayList<>();
-  public void pushscope() {
-    scopes.add(new ArrayList<String>());
-  }
-
-  public void popscope() {
-    scopes.pop();
-  }
-
-  public void decfunction() {
-    System.out.println(getCurrent
-  }
-}
-
 prog: funcoes ;
 funcoes: funcao* ;
-funcao: 'fn' ID {decfunction();} '(' argumentos ')' ID {istype()}? bloco;
-argumento: ID ':' ID {istype()}? ;
+funcao: 'fn' ID '(' argumentos ')' ID bloco ;
+argumento: ID ':' ID ;
 argumentos: (argumento (',' argumento)*)? ;
-bloco: '{' {pushscope();} stmt* {popscope();} '}' ;
+bloco: '{' stmt* '}' ;
 
 corpo: bloco | stmt ;
-stmt: condicional | declaracao | chamada ';' | atribuicao | pcada | enquanto | retorno ;
+stmt: condicional | declaracao | retorno | chamada ';' | atribuicao | pcada | enquanto ;
 condicional: SE '(' expr ')' corpo (SENAO corpo)? ;
-declaracao: SEJA ID {!isdeclared()}? '=' expr ';' {declaracao();} ;
-atribuicao: ID {isdeclared()}? ('=' | ATRARIT) expr ';' ;
+declaracao: SEJA ID (':' ID)? '=' expr ';' ;
+atribuicao: ID ('=' | ATRARIT) expr ';' ;
 pcada: PCADA '(' ID EM expr ')' corpo ;
 enquanto: ENQUANTO '(' expr ')' corpo ;
-retorno: RETORNA expr ';' ;
-chamada: {isfunc()}? ID '(' params ')' ;
+retorno: RETORNA expr? ';' ;
+chamada: ID '(' params ')' ;
 params: (expr (',' expr)*)? ;
 
 expr:
-      NUM
-    | chamada
-    | STRING
-    | BOOL
-    | ID {isdeclared()}?
-    | '!' expr
-    | '-' expr
-    | '(' expr ')'
-    | expr '**' expr
-    | expr ('*' | '/' | '%' | '//') expr
-    | expr OPBIN expr
-    | expr ('+' | '-') expr
-    | expr OPREL expr
-    | expr '&&' expr
-    | expr '||' expr
-    | expr '->' expr
+      NUM #NExpNum
+    | chamada #NExpCall
+    | STRING #NExpStr
+    | BOOL #NExpBool
+    | ID #NExpRef
+    | '!' expr #NExpNot
+    | '-' expr #NExpNeg
+    | '(' expr ')' #NExpPar
+    | expr '**' expr #NExpExp
+    | expr ('*' | '/' | '%' | '//') expr #NExpMulDiv
+    | expr OPBIN expr #NExpBin
+    | expr ('+' | '-') expr #NExpAddSub
+    | expr OPREL expr #NExpRel
+    | expr '&&' expr #NExpAnd
+    | expr '||' expr #NExpOr
+    | expr '->' expr #NExpImpl
     ;
 
 SEJA: 'seja' ;

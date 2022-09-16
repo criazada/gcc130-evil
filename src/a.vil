@@ -1,0 +1,4 @@
+fn a() nada {
+    seja b = 3;
+    c = 2;
+}
