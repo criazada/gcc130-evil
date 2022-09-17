@@ -73,7 +73,7 @@ public class Listener extends EvilBaseListener {
     }
 
     @Override
-    public void enterDeclaracao(EvilParser.DeclaracaoContext ctx) {
+    public void exitDeclaracao(EvilParser.DeclaracaoContext ctx) {
         String nome = ctx.ID(0).getText();
         Tipo tipoExpr = resolverTipo(ctx.iexpr());
         Tipo tipo;
@@ -121,12 +121,12 @@ public class Listener extends EvilBaseListener {
         if (fn == null) {
             erro(nome + " não é uma função existente");
         } else {
-            if (tipos.size() != fn.args.size()) {
-                erro("número incorreto de argumentos passado para " + nome + ": esperava " + fn.args.size() + ", recebeu " + tipos.size());
+            if (tipos.size() != fn.params.size()) {
+                erro("número incorreto de argumentos passado para " + nome + ": esperava " + fn.params.size() + ", recebeu " + tipos.size());
             }
 
-            for (int i = 0; i < fn.args.size(); i++) {
-                Tipo a = fn.args.get(i).tipo;
+            for (int i = 0; i < fn.params.size(); i++) {
+                Tipo a = fn.params.get(i).tipo;
                 Tipo b = tipos.get(i);
                 if (a != b) {
                     erro("tipo incorreto para argumento " + i + " de " + nome + ": esperava " + a + ", recebeu " + b);
@@ -346,10 +346,10 @@ class Identificador {
 
 class Funcao {
     Identificador fn;
-    List<Identificador> args;
+    List<Identificador> params;
 
-    Funcao(String nome, Tipo tipo, List<Identificador> args) {
+    Funcao(String nome, Tipo tipo, List<Identificador> params) {
         fn = new Identificador(nome, tipo);
-        this.args = args;
+        this.params = params;
     }
 }

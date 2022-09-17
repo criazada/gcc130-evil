@@ -19,6 +19,7 @@
       rec {
         devShell = pkgs.mkShell {
           inherit buildInputs nativeBuildInputs;
+          CLASSPATH = ".";
         };
       });
 }
