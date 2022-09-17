@@ -2,39 +2,41 @@ grammar Evil;
 
 prog: funcoes ;
 funcoes: funcao* ;
-funcao: 'fn' ID '(' argumentos ')' ID bloco ;
-argumento: ID ':' ID ;
-argumentos: (argumento (',' argumento)*)? ;
+funcao: 'fn' ID '(' params ')' ID bloco ;
+param: ID ':' ID ;
+params: (param (',' param)*)? ;
 bloco: '{' stmt* '}' ;
 
 corpo: bloco | stmt ;
 stmt: condicional | declaracao | retorno | chamada ';' | atribuicao | pcada | enquanto ;
-condicional: SE '(' expr ')' corpo (SENAO corpo)? ;
-declaracao: SEJA ID (':' ID)? '=' expr ';' ;
-atribuicao: ID ('=' | ATRARIT) expr ';' ;
-pcada: PCADA '(' ID EM expr ')' corpo ;
-enquanto: ENQUANTO '(' expr ')' corpo ;
-retorno: RETORNA expr? ';' ;
-chamada: ID '(' params ')' ;
-params: (expr (',' expr)*)? ;
+condicional: SE '(' iexpr ')' corpo (SENAO corpo)? ;
+declaracao: SEJA ID (':' ID)? '=' iexpr ';' ;
+atribuicao: ID ('=' | ATRARIT) iexpr ';' ;
+pcada: PCADA '(' ID EM iexpr ')' corpo ;
+enquanto: ENQUANTO '(' iexpr ')' corpo ;
+retorno: RETORNA iexpr? ';' ;
+chamada: ID '(' args ')' ;
+args: (iexpr (',' iexpr)*)? ;
+
+iexpr: expr ;
 
 expr:
-      NUM #NExpNum
-    | chamada #NExpCall
-    | STRING #NExpStr
-    | BOOL #NExpBool
-    | ID #NExpRef
-    | '!' expr #NExpNot
-    | '-' expr #NExpNeg
-    | '(' expr ')' #NExpPar
-    | expr '**' expr #NExpExp
-    | expr ('*' | '/' | '%' | '//') expr #NExpMulDiv
-    | expr OPBIN expr #NExpBin
-    | expr ('+' | '-') expr #NExpAddSub
-    | expr OPREL expr #NExpRel
-    | expr '&&' expr #NExpAnd
-    | expr '||' expr #NExpOr
-    | expr '->' expr #NExpImpl
+      NUM
+    | chamada
+    | STRING
+    | BOOL
+    | ID
+    | NOT expr
+    | NEG expr
+    | AP expr ')'
+    | expr EXP expr
+    | expr MULMODDIV expr
+    | expr OPBIN expr
+    | expr ADDSUB expr
+    | expr (OPEQ | OPREL) expr
+    | expr LOGAND expr
+    | expr LOGOR expr
+    | expr LOGIMPL expr
     ;
 
 SEJA: 'seja' ;
@@ -48,12 +50,20 @@ FN: 'fn' ;
 BOOL: 'verdadeiro' | 'falso' ;
 ATR: '=' ;
 NUM: '-'? ('0' | [1-9]('_'?[0-9])*)('.'[0-9]('_'?[0-9])*)? ;
-OPARIT: [+\-*/%] | '//' | '**' ;
-OPREL: ('>'|'<')'='? | ('!' | '=')'=' ;
-OPBIN: '&' | '|' | '^' ;
-OPBOOL: '&&' | '||' | '->' ;
+EXP: '**' ;
 ATRARIT: OPARIT '=' ;
-OPACC: '.' ;
+MULMODDIV: [*/%] | '//' ;
+ADDSUB: [+\-] ;
+OPARIT: MULMODDIV | ADDSUB ;
+OPEQ: '==' | '!=' ;
+OPREL: ('>'|'<')'='? ;
+OPBIN: '&' | '|' | '^' ;
+LOGAND: '&&' ;
+LOGOR: '||' ;
+LOGIMPL: '->' ;
+NOT: '!' ;
+NEG: '-' ;
+AP: '(' ;
 ID: [a-zA-Z_][a-zA-Z_0-9]* ;
 STRING: '"' ([^"] | '\\"' | .)*? '"' ;
 COM: '#' .*? [\n] -> skip ;

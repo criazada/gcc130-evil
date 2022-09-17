@@ -1,4 +1,4 @@
-// Generated from Evil.g4 by ANTLR 4.9.3
+// Generated from Evil.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -37,25 +37,25 @@ public interface EvilListener extends ParseTreeListener {
 	 */
 	void exitFuncao(EvilParser.FuncaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EvilParser#argumento}.
+	 * Enter a parse tree produced by {@link EvilParser#param}.
 	 * @param ctx the parse tree
 	 */
-	void enterArgumento(EvilParser.ArgumentoContext ctx);
+	void enterParam(EvilParser.ParamContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EvilParser#argumento}.
+	 * Exit a parse tree produced by {@link EvilParser#param}.
 	 * @param ctx the parse tree
 	 */
-	void exitArgumento(EvilParser.ArgumentoContext ctx);
+	void exitParam(EvilParser.ParamContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EvilParser#argumentos}.
+	 * Enter a parse tree produced by {@link EvilParser#params}.
 	 * @param ctx the parse tree
 	 */
-	void enterArgumentos(EvilParser.ArgumentosContext ctx);
+	void enterParams(EvilParser.ParamsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EvilParser#argumentos}.
+	 * Exit a parse tree produced by {@link EvilParser#params}.
 	 * @param ctx the parse tree
 	 */
-	void exitArgumentos(EvilParser.ArgumentosContext ctx);
+	void exitParams(EvilParser.ParamsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EvilParser#bloco}.
 	 * @param ctx the parse tree
@@ -157,205 +157,33 @@ public interface EvilListener extends ParseTreeListener {
 	 */
 	void exitChamada(EvilParser.ChamadaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EvilParser#params}.
+	 * Enter a parse tree produced by {@link EvilParser#args}.
 	 * @param ctx the parse tree
 	 */
-	void enterParams(EvilParser.ParamsContext ctx);
+	void enterArgs(EvilParser.ArgsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EvilParser#params}.
+	 * Exit a parse tree produced by {@link EvilParser#args}.
 	 * @param ctx the parse tree
 	 */
-	void exitParams(EvilParser.ParamsContext ctx);
+	void exitArgs(EvilParser.ArgsContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code NExpBool}
-	 * labeled alternative in {@link EvilParser#expr}.
+	 * Enter a parse tree produced by {@link EvilParser#iexpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterNExpBool(EvilParser.NExpBoolContext ctx);
+	void enterIexpr(EvilParser.IexprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code NExpBool}
-	 * labeled alternative in {@link EvilParser#expr}.
+	 * Exit a parse tree produced by {@link EvilParser#iexpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitNExpBool(EvilParser.NExpBoolContext ctx);
+	void exitIexpr(EvilParser.IexprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code NExpPar}
-	 * labeled alternative in {@link EvilParser#expr}.
+	 * Enter a parse tree produced by {@link EvilParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterNExpPar(EvilParser.NExpParContext ctx);
+	void enterExpr(EvilParser.ExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code NExpPar}
-	 * labeled alternative in {@link EvilParser#expr}.
+	 * Exit a parse tree produced by {@link EvilParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitNExpPar(EvilParser.NExpParContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpNum}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpNum(EvilParser.NExpNumContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpNum}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpNum(EvilParser.NExpNumContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpBin}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpBin(EvilParser.NExpBinContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpBin}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpBin(EvilParser.NExpBinContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpOr}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpOr(EvilParser.NExpOrContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpOr}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpOr(EvilParser.NExpOrContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpStr}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpStr(EvilParser.NExpStrContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpStr}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpStr(EvilParser.NExpStrContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpNeg}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpNeg(EvilParser.NExpNegContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpNeg}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpNeg(EvilParser.NExpNegContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpImpl}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpImpl(EvilParser.NExpImplContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpImpl}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpImpl(EvilParser.NExpImplContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpCall}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpCall(EvilParser.NExpCallContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpCall}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpCall(EvilParser.NExpCallContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpRef}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpRef(EvilParser.NExpRefContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpRef}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpRef(EvilParser.NExpRefContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpNot}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpNot(EvilParser.NExpNotContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpNot}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpNot(EvilParser.NExpNotContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpRel}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpRel(EvilParser.NExpRelContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpRel}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpRel(EvilParser.NExpRelContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpAddSub}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpAddSub(EvilParser.NExpAddSubContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpAddSub}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpAddSub(EvilParser.NExpAddSubContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpAnd}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpAnd(EvilParser.NExpAndContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpAnd}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpAnd(EvilParser.NExpAndContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpExp}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpExp(EvilParser.NExpExpContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpExp}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpExp(EvilParser.NExpExpContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NExpMulDiv}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNExpMulDiv(EvilParser.NExpMulDivContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NExpMulDiv}
-	 * labeled alternative in {@link EvilParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNExpMulDiv(EvilParser.NExpMulDivContext ctx);
+	void exitExpr(EvilParser.ExprContext ctx);
 }
